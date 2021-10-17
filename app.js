@@ -10,8 +10,16 @@ const app = express();
 const port = process.env.PORT;
 const projectName = process.env.PROJECT_NAME;
 
+// imports routes
+const adminRoutes = require("./routes/admin");
+const studentRoutes = require("./routes/student");
+
 // app use
 app.use(express.json());
+
+// routes use
+app.use("/admin", adminRoutes);
+app.use("/student", studentRoutes);
 
 // default routes
 app.get("/", (req, res) => {
